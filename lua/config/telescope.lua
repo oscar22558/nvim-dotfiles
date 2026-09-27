@@ -42,38 +42,70 @@ local function get_vimgrep_arguments()
 end
 
 return {
-	config = function()
+	config = function(_, opts)
 		local telescope = require("telescope")
-		telescope.setup({
+
+		local custom_config = {
 			defaults = {
 				vimgrep_arguments = get_vimgrep_arguments(),
 			},
+			opts = opts,
 			extensions = {
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown({
-						-- even more opts inside the table if you want
-					}),
+					require("telescope.themes").get_dropdown({}),
 				},
 			},
-		})
-		-- Load the extension
+			pickers = {
+				find_files = {
+					theme = "dropdown",
+					hidden = true,
+					no_ignore = false,
+				},
+				live_grep = {
+					theme = "ivy", -- Grep from the bottom pane
+				},
+				buffers = {
+					theme = "dropdown",
+					show_all_buffers = true,
+					sort_mru = true, -- Sort by most recently used
+					mappings = {
+						i = {
+							["<c-d>"] = "delete_buffer", -- Close a buffer directly from the picker
+						},
+						n = {
+							["<C-d>"] = "delete_buffer",
+						},
+					},
+				},
+				lsp_definitions = {
+					theme = "cursor",
+				},
+				lsp_references = {
+					theme = "cursor",
+					previewer = false,
+					initial_mode = "normal", -- Open in normal mode so you can jump quickly
+					layout_config = {
+						width = 0.6, -- Make it wide enough to see code paths
+						height = 0.4, -- Keep it short so it doesn't block the screen
+					},
+				},
+			},
+		}
+		local final_opts = vim.tbl_deep_extend("force", opts or {}, custom_config)
+		telescope.setup(final_opts)
 		telescope.load_extension("ui-select")
-		-- telescope.load_extension("live_grep_args")
 	end,
 	opts = function(_, opts)
-		local actions = require("telescope.actions")
-
-		-- Ensure mappings table exists
-		opts.defaults = opts.defaults or {}
-		opts.defaults.mappings = vim.tbl_deep_extend("force", opts.defaults.mappings or {}, {
-			i = {
-				-- Close buffer with Ctrl+d in Insert mode
-				["<C-d>"] = actions.delete_buffer,
-			},
-			n = {
-				-- Close buffer with Ctrl+d or dd in Normal mode
-				["<C-d>"] = actions.delete_buffer,
-			},
-		})
+		-- local actions = require("telescope.actions")
+		-- opts.defaults = opts.defaults or {}
+		-- opts.defaults.mappings = vim.tbl_deep_extend("force", opts.defaults.mappings or {}, {
+		-- 	i = {
+		-- 		["<C-d>"] = actions.delete_buffer,
+		-- 	},
+		-- 	n = {
+		-- 		["<C-d>"] = actions.delete_buffer,
+		-- 	},
+		-- })
+		return opts
 	end,
 }

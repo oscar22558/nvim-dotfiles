@@ -6,5 +6,6 @@ return {
 		-- optional but recommended
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
+	config = require("config.telescope").config,
 	opts = require("config.telescope").opts,
 }

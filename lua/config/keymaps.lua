@@ -1,3 +1,6 @@
+local telescopeThemes = require("telescope.themes")
+local telescopeBuiltin = require("telescope.builtin")
+
 vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
@@ -13,12 +16,11 @@ vim.keymap.set("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment select
 vim.keymap.set("n", "<C-e>", "<Cmd>Neotree toggle<CR>")
 
 -- Telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, { desc = "Telescope buffers" })
+vim.keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, { desc = "Telescope help tags" })
 -- vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
 -- Navigate buffers
 vim.keymap.set("n", "<leader>bf", ":bfirst<CR>", { silent = true })
@@ -56,7 +58,30 @@ vim.keymap.set("n", "<leader>wt", ":terminal<CR>", { desc = "Open terminal" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- go to
-vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, { desc = "Telescope LSP References" })
+-- vim.keymap.set("n", "grr", require("telescope.builtin").lsp_references, { desc = "Telescope LSP References" })
+-- vim.keymap.set("n", "grd", telescopeBuiltin.lsp_definitions, { buffer = bufnr, desc = "Telescope LSP Definitions" })
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local bufnr = args.buf
+		local builtin = require("telescope.builtin")
+
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP Hover Info" })
+		vim.keymap.set("n", "grr", builtin.lsp_references, { buffer = bufnr, desc = "Telescope LSP References" })
+		vim.keymap.set("n", "grd", builtin.lsp_definitions, { buffer = bufnr, desc = "Telescope LSP Definitions" })
+		vim.keymap.set(
+			"n",
+			"gri",
+			builtin.lsp_implementations,
+			{ buffer = bufnr, desc = "Telescope LSP Implementations" }
+		)
+		vim.keymap.set(
+			"n",
+			"grs",
+			builtin.lsp_document_symbols,
+			{ buffer = bufnr, desc = "Telescope Document Symbols" }
+		)
+	end,
+})
 
 -- refactor
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename variable" })
