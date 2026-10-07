@@ -29,6 +29,14 @@ return {
 		--			relativenumber = true,
 		--		},
 		--	},
+		--
+		filesystem = {
+			filtered_items = {
+				visible = true, -- This ensures filtered items remain visible
+				hide_dotfiles = false,
+				hide_gitignored = false,
+			},
+		},
 		event_handlers = {
 			{
 				event = "neo_tree_buffer_enter",
