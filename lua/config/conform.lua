@@ -21,7 +21,7 @@ return {
 			lua = { "stylua" },
 		},
 		format_on_save = {
-			timeout_ms = 3000,
+			timeout_ms = 10000,
 			lsp_fallback = true,
 		},
 	},

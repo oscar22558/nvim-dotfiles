@@ -60,6 +60,10 @@ return {
 					theme = "dropdown",
 					hidden = true,
 					no_ignore = false,
+					layout_config = {
+						width = 0.8,
+						height = 0.6,
+					},
 				},
 				live_grep = {
 					theme = "ivy", -- Grep from the bottom pane
@@ -75,6 +79,10 @@ return {
 						n = {
 							["<C-d>"] = "delete_buffer",
 						},
+					},
+					layout_config = {
+						width = 0.8,
+						height = 0.6,
 					},
 				},
 				lsp_definitions = {
