@@ -88,3 +88,10 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename variable"
 
 -- error
 vim.keymap.set("n", "<leader>ge", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+
+-- Paste last yanked text, ignoring recent deletes/changes
+vim.keymap.set({ "n", "v" }, "p", '"0p', { desc = "Paste last yanked text" })
+vim.keymap.set({ "n", "v" }, "P", '"0P', { desc = "Paste last yanked text (before)" })
+
+-- Optional: Keep original 'p' functionality on a secondary key if needed
+vim.keymap.set({ "n", "v" }, "<leader>p", "p", { desc = "Paste from unnamed register (includes deletes)" })
