@@ -95,3 +95,12 @@ vim.keymap.set({ "n", "v" }, "P", '"0P', { desc = "Paste last yanked text (befor
 
 -- Optional: Keep original 'p' functionality on a secondary key if needed
 vim.keymap.set({ "n", "v" }, "<leader>p", "p", { desc = "Paste from unnamed register (includes deletes)" })
+
+-- Copy selection to system clipboard with Ctrl+Shift+C (Visual mode)
+vim.keymap.set({ "n", "v" }, "<M-y>", '"+y', { desc = "Copy to system clipboard" })
+
+-- Paste from system clipboard with Ctrl+Shift+V (Normal & Visual modes)
+vim.keymap.set({ "n", "v" }, "<M-p>", '"+p', { desc = "Paste from system clipboard" })
+
+-- Paste from system clipboard with Ctrl+Shift+V while typing (Insert mode)
+vim.keymap.set("i", "<M-p>", "<C-r>+", { desc = "Paste from system clipboard inline" })
