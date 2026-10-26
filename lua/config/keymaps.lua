@@ -89,6 +89,8 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename variable"
 -- error
 vim.keymap.set("n", "<leader>ge", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 
+-- hover
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover documentation" })
 -- Paste last yanked text, ignoring recent deletes/changes
 vim.keymap.set({ "n", "v" }, "p", '"0p', { desc = "Paste last yanked text" })
 vim.keymap.set({ "n", "v" }, "P", '"0P', { desc = "Paste last yanked text (before)" })

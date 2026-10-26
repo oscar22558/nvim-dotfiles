@@ -1,3 +1,7 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+capabilities.offsetEncoding = { "utf-16" }
+
 return {
 
 	opts = {
@@ -11,6 +15,7 @@ return {
 				filetypes = { "javascriptreact", "typescriptreact" },
 			},
 		},
+		capabilities = capabilities,
 	},
 	config = function(_, opts)
 		require("typescript-tools").setup(opts)

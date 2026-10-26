@@ -45,3 +45,4 @@ require("config.keymaps")
 
 -- config
 require("config.options")
+require("config.jdtls")
