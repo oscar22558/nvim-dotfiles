@@ -84,10 +84,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- refactor
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename variable" })
+-- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename variable" })
 
 -- error
-vim.keymap.set("n", "<leader>ge", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+vim.keymap.set("n", "gre", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 
 -- hover
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover documentation" })
@@ -106,3 +106,8 @@ vim.keymap.set({ "n", "v" }, "<M-p>", '"+p', { desc = "Paste from system clipboa
 
 -- Paste from system clipboard with Ctrl+Shift+V while typing (Insert mode)
 vim.keymap.set("i", "<M-p>", "<C-r>+", { desc = "Paste from system clipboard inline" })
+
+-- overseer
+vim.keymap.set("n", "<leader>to", "<cmd>OverseerToggle<cr>", { desc = "Toggle Overseer" })
+vim.keymap.set("n", "<leader>ta", "<cmd>OverseerTaskAction<cr>", { desc = "OVerseer Task Action" })
+vim.keymap.set("n", "<leader>tr", "<cmd>OverseerRun<cr>", { desc = "Overseer Run" })
