@@ -7,9 +7,11 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
 
 -- Toggle comment for the current line in Normal mode
+vim.keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Toggle comment line" })
 vim.keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment line" })
 
 -- Toggle comment for the selected text in Visual mode
+vim.keymap.set("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment selection" })
 vim.keymap.set("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment selection" })
 
 -- Neotree
