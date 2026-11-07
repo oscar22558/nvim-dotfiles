@@ -12,7 +12,9 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "default" },
+		keymap = {
+			preset = "enter",
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -27,6 +29,12 @@ return {
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			min_keyword_length = function(ctx)
+				if ctx.update_type == "manual" then
+					return 0
+				end
+				return 2 -- default length for automatic typing
+			end,
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

@@ -15,7 +15,8 @@ vim.keymap.set("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment se
 vim.keymap.set("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment selection" })
 
 -- Neotree
-vim.keymap.set("n", "<C-e>", "<Cmd>Neotree toggle<CR>")
+vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
+vim.keymap.set("n", "<leader>nr", "<Cmd>Neotree reveal<CR>", { desc = "Neotree reveal" })
 
 -- Telescope
 vim.keymap.set("n", "<leader>ff", telescopeBuiltin.find_files, { desc = "Telescope find files" })
@@ -23,6 +24,7 @@ vim.keymap.set("n", "<leader>fg", telescopeBuiltin.live_grep, { desc = "Telescop
 vim.keymap.set("n", "<leader>fb", telescopeBuiltin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescopeBuiltin.help_tags, { desc = "Telescope help tags" })
 -- vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+vim.keymap.set("n", "<leader>fr", telescopeBuiltin.resume, { desc = "Telescope resume last picker" })
 
 -- Navigate buffers
 vim.keymap.set("n", "<leader>bf", ":bfirst<CR>", { silent = true })
