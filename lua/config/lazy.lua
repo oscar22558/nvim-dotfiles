@@ -37,8 +37,11 @@ require("lazy").setup({
 	checker = { enabled = true },
 })
 
+-- Load project
+require("config.project-local")
+
 -- theme
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd("colorscheme jb")
 
 -- Keymaps
 require("config.keymaps")

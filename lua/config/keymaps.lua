@@ -113,5 +113,15 @@ vim.keymap.set("i", "<M-p>", "<C-r>+", { desc = "Paste from system clipboard inl
 
 -- overseer
 vim.keymap.set("n", "<leader>to", "<cmd>OverseerToggle<cr>", { desc = "Toggle Overseer" })
-vim.keymap.set("n", "<leader>ta", "<cmd>OverseerTaskAction<cr>", { desc = "OVerseer Task Action" })
+vim.keymap.set("n", "<leader>ta", "<cmd>OverseerTaskAction<cr>", { desc = "Overseer Task Action" })
 vim.keymap.set("n", "<leader>tr", "<cmd>OverseerRun<cr>", { desc = "Overseer Run" })
+
+-- Java Debug controls
+vim.keymap.set("n", "<F5>", require("dap").continue, { desc = "Debug: Start/Continue" })
+vim.keymap.set("n", "<F10>", require("dap").step_over, { desc = "Debug: Step Over" })
+vim.keymap.set("n", "<F11>", require("dap").step_into, { desc = "Debug: Step Into" })
+vim.keymap.set("n", "<F12>", require("dap").step_out, { desc = "Debug: Step Out" })
+vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+
+vim.keymap.set("n", "<C-u>", "15<C-u>zz", { desc = "Scroll up 15 lines and center" })
+vim.keymap.set("n", "<C-d>", "15<C-d>zz", { desc = "Scroll down 15 lines and center" })
