@@ -19,6 +19,8 @@ return {
 			zsh = { "shfmt" },
 			-- lua
 			lua = { "stylua" },
+			-- python
+			python = { "ruff_organize_imports", "ruff_format" },
 		},
 		format_on_save = {
 			timeout_ms = 10000,

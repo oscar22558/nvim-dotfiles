@@ -1,23 +1,31 @@
-## Prerequistes
+# Environment Setup
 
-### Nerd Fornt
+## Nerd Fornt
 
 You can install font from (<a href="https://www.nerdfonts.com/">https://www.nerdfonts.com/</a>) to show icons on terminal.
 
-### System Packages
+## System Packages
 
-- gcc, make, git
-- lazygit
-- rp
-- shfmt
-- node, prettier
-- java, jdtls, lombok, maven
-- python (optional)
-- jdtls
+| Package | Optional |
+| ------- | -------- |
+| bash    |          |
+| gcc     |          |
+| make    |          |
+| git     |          |
+| lazygit |          |
+| rp      |          |
+| shfmt   |          |
+| node    |          |
+| java    |          |
+| maven   |          |
+| python  |          |
+| jdtls   |          |
+
+# Git
 
 ## LazyGit
 
-$HOME/.config/lazygit/config.yml
+Set `$HOME/.config/lazygit/config.yml` as following for return and quit command from Lazygit.
 
 ```yaml
 keybinding:
@@ -26,22 +34,29 @@ keybinding:
     return: "<c-r>"
 ```
 
+# Search (grep)
+
 ## Live Grep
 
-rg -> git grep -> grep
+Telescope will search binary for live grep in the following order.
 
-### rg
+1. rg (ripgrep)
+2. git grep (git)
+3. grep
 
-Install ripgrep on system
+# LSP
 
-## jdtls
+| Language | Tool               | Installation                                                                       |
+| -------- | ------------------ | ---------------------------------------------------------------------------------- |
+| Java     | jdtls              | [Installation guide](https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation) |
+| Java DAP | java-debug-adapter | `:MasonInstall java-debug-adapter`                                                 |
+| Python   | basedpyright       | `:MasonInstall basedpyright`                                                       |
 
-Follow the installation in https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
+# Formatter
 
-## conform (requires prettier)
-
-Optionally install prettier on global
-
-```shell
-npm install -g prettier
-```
+| Language   | Formatter | Installation                                       |
+| ---------- | --------- | -------------------------------------------------- |
+| TypeScript | prettier  | Optional global install: `npm install -g prettier` |
+| Shell      | shfmt     | `:MasonInstall shfmt`                              |
+| Lua        | stylua    | `:MasonInstall stylua`                             |
+| Python     | ruff      | `:MasonInstall ruff`                               |

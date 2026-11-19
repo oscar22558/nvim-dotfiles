@@ -44,6 +44,8 @@ vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close all other tabs
 
 -- LazyGit
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+vim.keymap.set("n", "<leader>gbl", "<cmd>Gitsigns blame_line<cr>", { desc = "Git Blame Pop Up" })
+vim.keymap.set("n", "<leader>gbt", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Git Blame Line Toggle" })
 
 -- oil
 vim.keymap.set("n", "<leader>oo", "<CMD>Oil<CR>", { desc = "Open parent directory" })
