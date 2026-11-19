@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close current tab" 
 vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close all other tabs" })
 
 -- LazyGit
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+vim.keymap.set("n", "<leader>glg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 vim.keymap.set("n", "<leader>gbl", "<cmd>Gitsigns blame_line<cr>", { desc = "Git Blame Pop Up" })
 vim.keymap.set("n", "<leader>gbt", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Git Blame Line Toggle" })
 
@@ -51,10 +51,13 @@ vim.keymap.set("n", "<leader>gbt", "<cmd>Gitsigns toggle_current_line_blame<cr>"
 vim.keymap.set("n", "<leader>oo", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Keymaps for TS/JS specific actions
-vim.keymap.set("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>", { desc = "Organize Imports" })
-vim.keymap.set("n", "<leader>ci", "<cmd>TSToolsAddMissingImports<CR>", { desc = "Add Missing Imports" })
-vim.keymap.set("n", "<leader>ru", "<cmd>TSToolsRemoveUnused<CR>", { desc = "Remove Unused Variables" })
-vim.keymap.set("n", "<leader>fa", "<cmd>TSToolsFixAll<CR>", { desc = "Fix All TS Errors" })
+vim.keymap.set("n", "<leader>lo", "<cmd>TSToolsOrganizeImports<CR>", { desc = "Organize Imports" })
+vim.keymap.set("n", "<leader>li", "<cmd>TSToolsAddMissingImports<CR>", { desc = "Add Missing Imports" })
+vim.keymap.set("n", "<leader>lr", "<cmd>TSToolsRemoveUnused<CR>", { desc = "Remove Unused Variables" })
+vim.keymap.set("n", "<leader>lf", "<cmd>TSToolsFixAll<CR>", { desc = "Fix All TS Errors" })
+
+-- Keymaps for python
+
 -- regex search in file, automatically start forward and backward searches in Very Magic mode
 vim.keymap.set("n", "/", "/\\v", { desc = "Search Forward (Very Magic)" })
 vim.keymap.set("n", "?", "?\\v", { desc = "Search Backward (Very Magic)" })

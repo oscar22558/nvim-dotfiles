@@ -2,7 +2,7 @@
 
 ## Nerd Fornt
 
-You can install font from [Nerd font](https://www.nerdfonts.com/) to show icons on terminal.
+You can install font from [Nerd Fonts](https://www.nerdfonts.com/) to show icons on terminal.
 
 ## System Packages
 
@@ -46,11 +46,12 @@ Telescope will search binary for live grep in the following order.
 
 # LSP
 
-| Language | Tool               | Installation                                                                       |
-| -------- | ------------------ | ---------------------------------------------------------------------------------- |
-| Java     | jdtls              | [Installation guide](https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation) |
-| Java DAP | java-debug-adapter | `:MasonInstall java-debug-adapter`                                                 |
-| Python   | basedpyright       | `:MasonInstall basedpyright`                                                       |
+| Language   | Tool               | Installation                                                                       |
+| ---------- | ------------------ | ---------------------------------------------------------------------------------- |
+| TypeScript | typescript-tools   | No need to install. Included in typescript-tools plugin.                           |
+| Java       | jdtls              | [Installation guide](https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation) |
+| Java DAP   | java-debug-adapter | `:MasonInstall java-debug-adapter`                                                 |
+| Python     | basedpyright       | `:MasonInstall basedpyright` or `uv tool install basedpyright`                     |
 
 # Formatter
 

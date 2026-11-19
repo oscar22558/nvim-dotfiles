@@ -27,4 +27,15 @@ return {
 			lsp_fallback = true,
 		},
 	},
+	keys = {
+		{
+			-- Manual format keybinding
+			"<leader>cf",
+			function()
+				require("conform").format({ async = true, lsp_format = "fallback" })
+			end,
+			mode = "",
+			desc = "Format buffer",
+		},
+	},
 }

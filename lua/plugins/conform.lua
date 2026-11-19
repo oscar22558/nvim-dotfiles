@@ -1,4 +1,6 @@
+local conform = require("config.conform")
 return {
 	"stevearc/conform.nvim",
-	opts = require("config.conform").opts,
+	opts = conform.opts,
+	keys = conform.keys,
 }

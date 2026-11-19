@@ -24,6 +24,7 @@ vim.g.maplocalleader = "\\"
 vim.o.background = "dark"
 vim.opt.termguicolors = true
 
+require("config.basedpyright")
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
