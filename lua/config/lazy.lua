@@ -24,7 +24,6 @@ vim.g.maplocalleader = "\\"
 vim.o.background = "dark"
 vim.opt.termguicolors = true
 
-require("config.basedpyright")
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
@@ -47,6 +46,8 @@ vim.cmd("colorscheme jb")
 -- Keymaps
 require("config.keymaps")
 
--- config
+-- options
 require("config.options")
+-- lsp
 require("config.jdtls")
+require("config.basedpyright")
