@@ -2,7 +2,7 @@
 
 ## Nerd Fornt
 
-You can install font from (<a href="https://www.nerdfonts.com/">https://www.nerdfonts.com/</a>) to show icons on terminal.
+You can install font from [Nerd font](https://www.nerdfonts.com/) to show icons on terminal.
 
 ## System Packages
 
